@@ -9,7 +9,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(20),
+      margin: EdgeInsets.fromLTRB(50, 20, 50, 0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -48,7 +48,7 @@ class NavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     // A boolean that defines the break point
     // for shortening the nav bar elements
-    bool keepwide = MediaQuery.of(context).size.width >= 720;
+    bool keepwide = MediaQuery.of(context).size.width >= 820;
 
     // A border radius property shared by all menu elements
     BorderRadius borderradius = BorderRadius.circular(40);
@@ -86,7 +86,10 @@ class NavBar extends StatelessWidget {
                 boxShadow: [boxshadow],
               ),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  var prov = Provider.of<MenuState>(context, listen: false);
+                  prov.updatemenu(MenuState(MenuType.userlogin));
+                },
                 child: Icon(
                   Icons.supervised_user_circle,
                   color: selected.currentmenu == MenuType.userlogin
@@ -98,7 +101,7 @@ class NavBar extends StatelessWidget {
             ),
             SizedBox(width: menuspacing),
             Container(
-              width: keepwide ? 110 : basethickness,
+              width: keepwide ? 125 : basethickness,
               height: basethickness,
               decoration: BoxDecoration(
                 color: selected.currentmenu == MenuType.regions
@@ -115,19 +118,34 @@ class NavBar extends StatelessWidget {
                 boxShadow: [boxshadow],
               ),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  var prov = Provider.of<MenuState>(context, listen: false);
+                  prov.updatemenu(MenuState(MenuType.regions));
+                },
                 child: keepwide
-                    ? Text(
-                        "Regions",
-                        style: GoogleFonts.montserrat(
-                          textStyle: TextStyle(
+                    ? Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Mdi.mapMarkerRadius,
                             color: selected.currentmenu == MenuType.regions
                                 ? Colors.white
                                 : Colors.green,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
                           ),
-                        ),
+                          SizedBox(width: 5),
+                          Text(
+                            "Regions",
+                            style: GoogleFonts.montserrat(
+                              textStyle: TextStyle(
+                                color: selected.currentmenu == MenuType.regions
+                                    ? Colors.white
+                                    : Colors.green,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          )
+                        ],
                       )
                     : Icon(
                         Mdi.mapMarkerRadius,
@@ -139,7 +157,7 @@ class NavBar extends StatelessWidget {
             ),
             SizedBox(width: menuspacing),
             Container(
-              width: keepwide ? 130 : basethickness,
+              width: keepwide ? 150 : basethickness,
               height: basethickness,
               decoration: BoxDecoration(
                 color: selected.currentmenu == MenuType.geogallery
@@ -156,19 +174,35 @@ class NavBar extends StatelessWidget {
                 boxShadow: [boxshadow],
               ),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  var prov = Provider.of<MenuState>(context, listen: false);
+                  prov.updatemenu(MenuState(MenuType.geogallery));
+                },
                 child: keepwide
-                    ? Text(
-                        "Geo Gallery",
-                        style: GoogleFonts.montserrat(
-                          textStyle: TextStyle(
+                    ? Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Mdi.earth,
                             color: selected.currentmenu == MenuType.geogallery
                                 ? Colors.white
                                 : Colors.green,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
                           ),
-                        ),
+                          SizedBox(width: 5),
+                          Text(
+                            "Geo Gallery",
+                            style: GoogleFonts.montserrat(
+                              textStyle: TextStyle(
+                                color:
+                                    selected.currentmenu == MenuType.geogallery
+                                        ? Colors.white
+                                        : Colors.green,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          )
+                        ],
                       )
                     : Icon(
                         Mdi.earth,
@@ -190,7 +224,7 @@ class LogoBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool keepwide = MediaQuery.of(context).size.width >= 560;
+    bool keepwide = MediaQuery.of(context).size.width >= 660;
 
     RichText logofull = RichText(
       textAlign: TextAlign.center,
