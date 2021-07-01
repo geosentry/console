@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:terrascope_app/widgets/appbar.dart';
 
 void main() {
-  runApp(MainApp());
+  runApp(Terrascope());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({Key? key}) : super(key: key);
+class Terrascope extends StatelessWidget {
+  const Terrascope({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,10 @@ class MainApp extends StatelessWidget {
         ),
         primaryColor: Color(0xFF67A617),
       ),
-      home: Home(),
+      home: ChangeNotifierProvider<MenuState>(
+        create: (context) => MenuState(MenuType.userlogin),
+        child: Home(),
+      ),
     );
   }
 }
@@ -48,13 +52,16 @@ class Home extends StatelessWidget {
         children: [
           CustomAppBar(),
           Expanded(
-            child: Container(
-              margin: EdgeInsets.all(40),
-              width: 350,
-              height: 400,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(80),
+            child: FittedBox(
+              fit: BoxFit.fitWidth,
+              child: Container(
+                width: MediaQuery.of(context).size.width / 5,
+                height: 250,
+                margin: EdgeInsets.all(50),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
