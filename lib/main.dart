@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'package:terrascope_app/home.dart';
 import 'package:terrascope_app/appbar/menustate.dart';
+import 'package:terrascope_app/userlogin/googlesignin.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp();
+
   runApp(Terrascope());
 }
 
@@ -26,8 +32,15 @@ class Terrascope extends StatelessWidget {
         ),
         primaryColor: Color(0xFF67A617),
       ),
-      home: ChangeNotifierProvider<MenuState>(
-        create: (context) => MenuState(MenuType.userlogin),
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider<MenuState>(
+            create: (context) => MenuState(MenuType.userlogin),
+          ),
+          ChangeNotifierProvider<GoogleSignInProvider>(
+            create: (context) => GoogleSignInProvider(),
+          )
+        ],
         child: Material(
           type: MaterialType.transparency,
           child: Home(),
