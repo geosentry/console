@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -6,6 +7,8 @@ class UserInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser!;
+
     return Container(
       child: Column(
         children: [
@@ -27,9 +30,7 @@ class UserInfo extends StatelessWidget {
             child: CircleAvatar(
               backgroundColor: Colors.white,
               backgroundImage: AssetImage("defaultuser.png"),
-              foregroundImage: NetworkImage(
-                "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80",
-              ),
+              foregroundImage: NetworkImage(user.photoURL!),
               //radius: 100,
               minRadius: 50,
               maxRadius: 100,
@@ -38,7 +39,7 @@ class UserInfo extends StatelessWidget {
           SizedBox(height: 25),
           Container(
             child: Text(
-              "Manish Meganathan",
+              user.displayName!,
               textAlign: TextAlign.center,
               style: GoogleFonts.lexendDeca(
                 textBaseline: TextBaseline.alphabetic,
