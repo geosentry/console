@@ -14,6 +14,7 @@ dependencies:
   provider: ^5.0.0
   google_fonts: ^2.1.0
   mdi: ^5.0.0-nullsafety.0
+  flutter_svg: ^0.22.0
   cupertino_icons: ^1.0.2
 
   google_sign_in: ^5.0.4
