@@ -14,34 +14,36 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return Container(
-      height: size.height,
-      width: size.width,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("coast.jpg"),
-          fit: BoxFit.cover,
+    return SafeArea(
+      child: Container(
+        height: size.height,
+        width: size.width,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("coast.jpg"),
+            fit: BoxFit.cover,
+          ),
         ),
-      ),
-      child: Column(
-        children: [
-          CustomBar(),
-          Expanded(
-            child: Container(
-              margin: EdgeInsets.all(50),
-              child: Consumer<MenuState>(
-                builder: (context, value, child) {
-                  if (value.currentmenu == MenuType.geogallery)
-                    return GeoGalleryPage();
-                  else if (value.currentmenu == MenuType.regions)
-                    return RegionsPage();
-                  else
-                    return UserPage();
-                },
+        child: Column(
+          children: [
+            CustomBar(),
+            Expanded(
+              child: Container(
+                margin: EdgeInsets.all(50),
+                child: Consumer<MenuState>(
+                  builder: (context, value, child) {
+                    if (value.currentmenu == MenuType.geogallery)
+                      return GeoGalleryPage();
+                    else if (value.currentmenu == MenuType.regions)
+                      return RegionsPage();
+                    else
+                      return UserPage();
+                  },
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
