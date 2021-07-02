@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:terrascope_app/userlogin/googlesignin.dart';
 
 class LoginStatus extends StatelessWidget {
   final String message;
@@ -63,7 +65,11 @@ class LoginButton extends StatelessWidget {
             ],
           ),
           child: TextButton(
-            onPressed: () {},
+            onPressed: () {
+              final provider =
+                  Provider.of<GoogleSignInProvider>(context, listen: false);
+              provider.googlelogin();
+            },
             style: ButtonStyle(
               shape: MaterialStateProperty.all<CircleBorder>(CircleBorder()),
             ),
@@ -120,7 +126,11 @@ class LogoutButton extends StatelessWidget {
             ],
           ),
           child: TextButton(
-            onPressed: () {},
+            onPressed: () {
+              final provider =
+                  Provider.of<GoogleSignInProvider>(context, listen: false);
+              provider.logout();
+            },
             child: Container(
               child: Text(
                 "Log Out",
