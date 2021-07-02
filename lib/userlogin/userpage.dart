@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+import 'package:terrascope_app/userlogin/userinfo.dart';
+import 'package:terrascope_app/userlogin/loginui.dart';
 
 class UserPage extends StatelessWidget {
   const UserPage({Key? key}) : super(key: key);
@@ -7,7 +9,7 @@ class UserPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //
-    bool userloggedin = false;
+    bool userloggedin = true;
     // Determine size of screen
     Size size = MediaQuery.of(context).size;
     // Set the variable parameters based on size
@@ -63,209 +65,6 @@ class UserView extends StatelessWidget {
         parent: AlwaysScrollableScrollPhysics(),
       ),
       children: listchildren,
-    );
-  }
-}
-
-class LoginStatus extends StatelessWidget {
-  final String message;
-  const LoginStatus(this.message);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: FittedBox(
-        fit: BoxFit.scaleDown,
-        child: Container(
-          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(50),
-            boxShadow: [
-              BoxShadow(
-                offset: Offset(0, -2),
-                blurRadius: 30,
-                color: Colors.black.withOpacity(0.7),
-              )
-            ],
-          ),
-          child: Text(
-            message,
-            textAlign: TextAlign.center,
-            style: GoogleFonts.lexendDeca(
-              textBaseline: TextBaseline.alphabetic,
-              textStyle: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class UserInfo extends StatelessWidget {
-  const UserInfo({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: new Border.all(
-                color: Colors.white,
-                width: 10.0,
-              ),
-              boxShadow: [
-                BoxShadow(
-                  offset: Offset(0, -2),
-                  blurRadius: 30,
-                  color: Colors.black.withOpacity(0.7),
-                ),
-              ],
-            ),
-            child: CircleAvatar(
-              backgroundColor: Colors.white,
-              backgroundImage: AssetImage("defaultuser.png"),
-              foregroundImage: NetworkImage(
-                "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80",
-              ),
-              //radius: 100,
-              minRadius: 50,
-              maxRadius: 100,
-            ),
-          ),
-          SizedBox(height: 25),
-          Container(
-            child: Text(
-              "Manish Meganathan",
-              textAlign: TextAlign.center,
-              style: GoogleFonts.lexendDeca(
-                textBaseline: TextBaseline.alphabetic,
-                textStyle: TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
-              ),
-            ),
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(50),
-              boxShadow: [
-                BoxShadow(
-                  offset: Offset(0, -2),
-                  blurRadius: 30,
-                  color: Colors.black.withOpacity(0.7),
-                )
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class LoginButton extends StatelessWidget {
-  const LoginButton({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: FittedBox(
-        fit: BoxFit.scaleDown,
-        child: Container(
-          width: 160,
-          height: 160,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(100),
-            boxShadow: [
-              BoxShadow(
-                offset: Offset(0, -2),
-                blurRadius: 30,
-                color: Colors.black.withOpacity(0.7),
-              ),
-            ],
-          ),
-          child: TextButton(
-            onPressed: () {},
-            style: ButtonStyle(
-              shape: MaterialStateProperty.all<CircleBorder>(CircleBorder()),
-            ),
-            child: Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    "google.png",
-                    width: 50,
-                  ),
-                  SizedBox(height: 20),
-                  Text(
-                    "Log In",
-                    style: GoogleFonts.lexendDeca(
-                      textBaseline: TextBaseline.alphabetic,
-                      textStyle: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class LogoutButton extends StatelessWidget {
-  const LogoutButton({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: FittedBox(
-        fit: BoxFit.scaleDown,
-        child: Container(
-          height: 50,
-          width: 100,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(50),
-            boxShadow: [
-              BoxShadow(
-                offset: Offset(0, -2),
-                blurRadius: 30,
-                color: Colors.black.withOpacity(0.7),
-              )
-            ],
-          ),
-          child: TextButton(
-            onPressed: () {},
-            child: Container(
-              child: Text(
-                "Log Out",
-                style: GoogleFonts.lexendDeca(
-                  textStyle: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                  ),
-                  textBaseline: TextBaseline.alphabetic,
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
     );
   }
 }
