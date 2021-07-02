@@ -9,7 +9,7 @@ class LoggedIn extends StatelessWidget {
     // Determine size of screen
     Size size = MediaQuery.of(context).size;
     // Set the variable parameters based on size
-    double boxwidth = size.width >= 500 ? 400 : size.width - 100;
+    double boxwidth = size.width >= 500 ? 600 : size.width - 100;
     double elementspacer = size.height >= 650 ? 20 : 10;
 
     return Container(
@@ -28,69 +28,34 @@ class LoggedIn extends StatelessWidget {
                 parent: AlwaysScrollableScrollPhysics(),
               ),
               children: [
-                SizedBox(height: elementspacer * 4),
+                SizedBox(height: elementspacer * 3),
+                UserPicture(),
+                SizedBox(height: elementspacer * 3),
                 FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Container(
-                    height: 120,
-                    width: 120,
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(60),
+                      borderRadius: BorderRadius.circular(50),
                     ),
-                    child: Icon(
-                      Icons.supervised_user_circle,
-                      size: 90,
-                      color: Colors.teal,
-                    ),
-                  ),
-                ),
-                SizedBox(height: elementspacer * 3),
-                Container(
-                  height: 110,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 15),
-                      Material(
-                        type: MaterialType.transparency,
-                        child: Text(
-                          "logged in as",
-                          style: GoogleFonts.montserrat(
-                            textBaseline: TextBaseline.alphabetic,
-                            textStyle: TextStyle(
-                              fontSize: 28,
-                              fontWeight: FontWeight.w600,
-                            ),
+                    child: Material(
+                      type: MaterialType.transparency,
+                      child: Text(
+                        "logged in as",
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.montserrat(
+                          textBaseline: TextBaseline.alphabetic,
+                          textStyle: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
-                      SizedBox(height: 15),
-                      Flexible(
-                        child: Material(
-                          type: MaterialType.transparency,
-                          child: Container(
-                            width: boxwidth - 30,
-                            child: Text(
-                              "manishmeganathan@gmail.com",
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.montserrat(
-                                textBaseline: TextBaseline.alphabetic,
-                                textStyle: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
+                    ),
                   ),
                 ),
+                UserInformation("manishmeganathan@gmail.com"),
                 SizedBox(height: elementspacer * 1),
                 FittedBox(
                   fit: BoxFit.scaleDown,
@@ -118,10 +83,76 @@ class LoggedIn extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(height: elementspacer * 2)
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class UserPicture extends StatelessWidget {
+  const UserPicture({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FittedBox(
+      fit: BoxFit.scaleDown,
+      child: Container(
+        height: 120,
+        width: 120,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(60),
+        ),
+        child: Icon(
+          Icons.supervised_user_circle,
+          size: 90,
+          color: Colors.teal,
+        ),
+      ),
+    );
+  }
+}
+
+class UserInformation extends StatelessWidget {
+  final String emailid;
+  const UserInformation(this.emailid);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 120,
+      child: Column(
+        children: [
+          SizedBox(height: 20),
+          Flexible(
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: Material(
+                type: MaterialType.transparency,
+                child: Text(
+                  emailid,
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.clip,
+                  style: GoogleFonts.montserrat(
+                    textBaseline: TextBaseline.alphabetic,
+                    textStyle: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
