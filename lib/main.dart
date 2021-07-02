@@ -28,7 +28,10 @@ class Terrascope extends StatelessWidget {
       ),
       home: ChangeNotifierProvider<MenuState>(
         create: (context) => MenuState(MenuType.userlogin),
-        child: Home(),
+        child: Material(
+          type: MaterialType.transparency,
+          child: Home(),
+        ),
       ),
     );
   }
