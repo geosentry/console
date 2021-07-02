@@ -8,7 +8,6 @@ class UserPage extends StatelessWidget {
   Widget build(BuildContext context) {
     //
     bool userloggedin = false;
-
     // Determine size of screen
     Size size = MediaQuery.of(context).size;
     // Set the variable parameters based on size
@@ -51,7 +50,7 @@ class UserView extends StatelessWidget {
             LogoutButton()
           ]
         : [
-            SizedBox(height: elementspacer * 4),
+            SizedBox(height: elementspacer * 6),
             LoginStatus("not logged in"),
             SizedBox(height: elementspacer * 4),
             LoginButton()
@@ -179,8 +178,8 @@ class LoginButton extends StatelessWidget {
       child: FittedBox(
         fit: BoxFit.scaleDown,
         child: Container(
-          width: 200,
-          height: 200,
+          width: 160,
+          height: 160,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(100),
@@ -194,7 +193,32 @@ class LoginButton extends StatelessWidget {
           ),
           child: TextButton(
             onPressed: () {},
-            child: Icon(Icons.ac_unit),
+            style: ButtonStyle(
+              shape: MaterialStateProperty.all<CircleBorder>(CircleBorder()),
+            ),
+            child: Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "google.png",
+                    width: 50,
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    "Log In",
+                    style: GoogleFonts.lexendDeca(
+                      textBaseline: TextBaseline.alphabetic,
+                      textStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ),
