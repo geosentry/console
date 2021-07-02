@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:terrascope_app/userlogin/googlesignin.dart';
 
 class LoginStatus extends StatelessWidget {
@@ -77,8 +80,12 @@ class LoginButton extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(
-                    "google.png",
+                  // Image.network(
+                  //   "assets/assets/google.svg",
+                  //   width: 50,
+                  // ),
+                  SvgPicture.network(
+                    "assets/assets/google.svg ",
                     width: 50,
                   ),
                   SizedBox(height: 20),

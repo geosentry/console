@@ -1,6 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
 import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class UserInfo extends StatelessWidget {
   const UserInfo({Key? key}) : super(key: key);
@@ -31,7 +32,6 @@ class UserInfo extends StatelessWidget {
               backgroundColor: Colors.white,
               backgroundImage: AssetImage("defaultuser.png"),
               foregroundImage: NetworkImage(user.photoURL!),
-              //radius: 100,
               minRadius: 50,
               maxRadius: 100,
             ),

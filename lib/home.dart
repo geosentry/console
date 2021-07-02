@@ -24,7 +24,7 @@ class Home extends StatelessWidget {
             width: size.width,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("islands.jpg"),
+                image: NetworkImage("assets/assets/islands.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
