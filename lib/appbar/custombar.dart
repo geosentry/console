@@ -8,15 +8,22 @@ class CustomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool keeplogo = MediaQuery.of(context).size.width >= 360;
+
     return Container(
       margin: EdgeInsets.fromLTRB(50, 20, 50, 0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          LogoBar(),
-          Spacer(),
-          NavBar(),
-        ],
+        children: keeplogo
+            ? [
+                LogoBar(),
+                Spacer(),
+                NavBar(),
+              ]
+            : [
+                Spacer(),
+                NavBar(),
+              ],
       ),
     );
   }
