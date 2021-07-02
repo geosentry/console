@@ -4,31 +4,35 @@ import 'package:terrascope_app/userlogin/userinfo.dart';
 import 'package:terrascope_app/userlogin/loginui.dart';
 
 class UserPage extends StatelessWidget {
-  const UserPage({Key? key}) : super(key: key);
+  final AsyncSnapshot<Object?> authsnapshot;
+  const UserPage(this.authsnapshot);
 
   @override
   Widget build(BuildContext context) {
-    //
-    bool userloggedin = true;
     // Determine size of screen
     Size size = MediaQuery.of(context).size;
     // Set the variable parameters based on size
     double boxwidth = size.width >= 500 ? 600 : size.width - 100;
 
-    return Container(
-      child: Center(
-        child: Container(
-          width: boxwidth,
-          height: 700,
-          alignment: Alignment.center,
-          color: Colors.transparent,
-          child: Listener(
-            onPointerSignal: (pointersignal) {},
-            child: UserView(userloggedin),
+    if (authsnapshot.connectionState == ConnectionState.waiting)
+      return Center(child: CircularProgressIndicator());
+    else if (authsnapshot.hasError)
+      return Center(child: Text("something went wrong!"));
+    else
+      return Container(
+        child: Center(
+          child: Container(
+            width: boxwidth,
+            height: 700,
+            alignment: Alignment.center,
+            color: Colors.transparent,
+            child: Listener(
+              onPointerSignal: (pointersignal) {},
+              child: UserView(authsnapshot.hasData),
+            ),
           ),
         ),
-      ),
-    );
+      );
   }
 }
 
