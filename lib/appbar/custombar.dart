@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:terrascope_app/appbar/logobar.dart';
-import 'package:terrascope_app/appbar/navbar.dart';
+import 'package:geosentry_console/appbar/logobar.dart';
+import 'package:geosentry_console/appbar/navbar.dart';
 
 class CustomBar extends StatelessWidget {
   const CustomBar({Key? key}) : super(key: key);

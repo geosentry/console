@@ -2,26 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'package:terrascope_app/home.dart';
-import 'package:terrascope_app/appbar/menustate.dart';
-import 'package:terrascope_app/userlogin/googlesignin.dart';
+import 'package:geosentry_console/home.dart';
+import 'package:geosentry_console/appbar/menustate.dart';
+import 'package:geosentry_console/userlogin/googlesignin.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp();
 
-  runApp(Terrascope());
+  runApp(GeoSentry());
 }
 
-class Terrascope extends StatelessWidget {
-  const Terrascope({Key? key}) : super(key: key);
+class GeoSentry extends StatelessWidget {
+  const GeoSentry({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Terrascope",
+      title: "GeoSentry",
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         pageTransitionsTheme: PageTransitionsTheme(

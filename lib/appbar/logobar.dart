@@ -23,12 +23,12 @@ class LogoBar extends StatelessWidget {
         ),
         children: [
           TextSpan(
-            text: "terra",
+            text: "geo",
             style: TextStyle(color: Colors.green),
           ),
           TextSpan(
-            text: "scope",
-            style: TextStyle(color: Colors.brown),
+            text: "sentry",
+            style: TextStyle(color: Colors.black),
           ),
         ],
       ),
@@ -45,8 +45,8 @@ class LogoBar extends StatelessWidget {
           ),
         ),
         children: [
-          TextSpan(text: "t", style: TextStyle(color: Colors.green)),
-          TextSpan(text: "s", style: TextStyle(color: Colors.brown)),
+          TextSpan(text: "g", style: TextStyle(color: Colors.green)),
+          TextSpan(text: "s", style: TextStyle(color: Colors.black)),
         ],
       ),
     );

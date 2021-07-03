@@ -2,11 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:terrascope_app/appbar/menustate.dart';
-import 'package:terrascope_app/appbar/custombar.dart';
-import 'package:terrascope_app/regions/regionspage.dart';
-import 'package:terrascope_app/geogallery/geogallerypage.dart';
-import 'package:terrascope_app/userlogin/userpage.dart';
+import 'package:geosentry_console/appbar/menustate.dart';
+import 'package:geosentry_console/appbar/custombar.dart';
+import 'package:geosentry_console/regions/regionspage.dart';
+import 'package:geosentry_console/geogallery/geogallerypage.dart';
+import 'package:geosentry_console/userlogin/userpage.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);

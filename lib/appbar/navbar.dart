@@ -4,7 +4,7 @@ import 'package:mdi/mdi.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:terrascope_app/appbar/menustate.dart';
+import 'package:geosentry_console/appbar/menustate.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({Key? key}) : super(key: key);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:terrascope_app/userlogin/userinfo.dart';
-import 'package:terrascope_app/userlogin/loginui.dart';
+import 'package:geosentry_console/userlogin/userinfo.dart';
+import 'package:geosentry_console/userlogin/loginui.dart';
 
 class UserPage extends StatelessWidget {
   final AsyncSnapshot<Object?> authsnapshot;
