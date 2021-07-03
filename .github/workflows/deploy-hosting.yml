@@ -31,7 +31,7 @@ jobs:
     - name: Deploy to Firebase Hosting
       uses: w9jds/firebase-action@master
       with:
-        args: deploy --only hosting:terrascope
+        args: deploy --only hosting:geosentry
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_CI_TOKEN }}
         PROJECT_ID: ${{ secrets.FIREBASE_PROJECT }}
