@@ -1,16 +1,22 @@
-# terrascope_app
+# Terrascope 🌍
 
-A new Flutter project.
+A geospatial data service that offers spectral, topographical and comparative 
+analytics along with a community-curated gallery of stunning satellite imagery 
+powered by ESA's Sentinel-2 & Google Earth Engine.
 
-## Getting Started
+https://www.terrascope.web.app
 
-This project is a starting point for a Flutter application.
+## In Development
+**Version: 0.1.0**  
+**Backend: Firebase**  
+**Language: Dart/Flutter**  
+**License: MIT**
 
-A few resources to get you started if this is your first Flutter project:
+## Overview
+- High level overview of Terrascope
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## App Layout
+- App screenshots
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Backend Repository
+https://www.github.com/manishmeganathan/terrascope-cloud
