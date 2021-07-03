@@ -1,59 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LogoBar extends StatelessWidget {
   const LogoBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // A boolean that defines the break point
-    // for shortening the logo bar element
-    bool keepwide = MediaQuery.of(context).size.width >= 660;
+    const githuburl = "https://github.com/geosentry";
 
-    // The rich text widget to use when the element is expanded
-    RichText logofull = RichText(
-      textAlign: TextAlign.center,
-      text: TextSpan(
-        style: GoogleFonts.montserratAlternates(
-          textStyle: TextStyle(
-            fontSize: 36,
-            fontWeight: FontWeight.w900,
-          ),
-          textBaseline: TextBaseline.alphabetic,
-        ),
-        children: [
-          TextSpan(
-            text: "geo",
-            style: TextStyle(color: Colors.green),
-          ),
-          TextSpan(
-            text: "sentry",
-            style: TextStyle(color: Colors.black),
-          ),
-        ],
-      ),
-    );
-
-    // The rich text widget to use when the element is shrunk
-    RichText logoshort = RichText(
-      textAlign: TextAlign.center,
-      text: TextSpan(
-        style: GoogleFonts.montserratAlternates(
-          textStyle: TextStyle(
-            fontSize: 36,
-            fontWeight: FontWeight.w900,
-          ),
-        ),
-        children: [
-          TextSpan(text: "g", style: TextStyle(color: Colors.green)),
-          TextSpan(text: "s", style: TextStyle(color: Colors.black)),
-        ],
-      ),
-    );
-
-    return Container(
+    // The logobar when fully expanded
+    Container logotext = Container(
       height: 50,
-      width: keepwide ? 280 : 70,
+      width: 280,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(60),
@@ -65,7 +25,71 @@ class LogoBar extends StatelessWidget {
           )
         ],
       ),
-      child: keepwide ? logofull : logoshort,
+      child: TextButton(
+          onPressed: () {
+            launch(githuburl);
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SvgPicture.network(
+                "assets/assets/geosentry.svg ",
+                width: 50,
+              ),
+              SizedBox(width: 5),
+              RichText(
+                // textAlign: TextAlign.center,
+                text: TextSpan(
+                  style: GoogleFonts.montserratAlternates(
+                    textStyle: TextStyle(
+                      fontSize: 36,
+                      fontWeight: FontWeight.w900,
+                    ),
+                    textBaseline: TextBaseline.alphabetic,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: "geo",
+                      style: TextStyle(color: Colors.green),
+                    ),
+                    TextSpan(
+                      text: "sentry",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(width: 10),
+            ],
+          )),
     );
+
+    Container logo = Container(
+      height: 50,
+      width: 50,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(0, -2),
+            blurRadius: 20,
+            color: Colors.black.withOpacity(0.7),
+          )
+        ],
+      ),
+      child: TextButton(
+        onPressed: () {
+          launch(githuburl);
+        },
+        child: SvgPicture.network(
+          "assets/assets/geosentry.svg ",
+          width: 50,
+        ),
+      ),
+    );
+
+    return MediaQuery.of(context).size.width >= 640 ? logotext : logo;
   }
 }
