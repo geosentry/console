@@ -10,6 +10,12 @@ class LogoBar extends StatelessWidget {
   Widget build(BuildContext context) {
     const githuburl = "https://github.com/geosentry";
 
+    Widget logosrc = SvgPicture.network(
+      "assets/assets/geosentry.svg ",
+      width: 40,
+      clipBehavior: Clip.antiAlias,
+    );
+
     // The logobar when fully expanded
     Container logotext = Container(
       height: 50,
@@ -33,10 +39,7 @@ class LogoBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SvgPicture.network(
-                "assets/assets/geosentry.svg ",
-                width: 50,
-              ),
+              logosrc,
               SizedBox(width: 5),
               RichText(
                 // textAlign: TextAlign.center,
@@ -83,10 +86,7 @@ class LogoBar extends StatelessWidget {
         onPressed: () {
           launch(githuburl);
         },
-        child: SvgPicture.network(
-          "assets/assets/geosentry.svg ",
-          width: 50,
-        ),
+        child: logosrc,
       ),
     );
 
