@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "terrascope",
+    "site": "geosentry",
     "public": "build/web",
     "ignore": [
       "firebase.json",
