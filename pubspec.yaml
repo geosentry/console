@@ -9,16 +9,25 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  # Flutter SDK
   flutter:
     sdk: flutter
+
+  # State Management
   provider: ^5.0.0
+
+  # Fonts and Icons
   google_fonts: ^2.1.0
   mdi: ^5.0.0-nullsafety.0
   flutter_svg: ^0.22.0
   cupertino_icons: ^1.0.2
 
-  google_sign_in: ^5.0.4
+  # Firebase
   firebase_auth: ^2.0.0
+
+  # Networking
+  google_sign_in: ^5.0.4
+  url_launcher: ^6.0.8
 
 dev_dependencies:
   flutter_test:
