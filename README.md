@@ -1,12 +1,12 @@
 # GeoSentry Console 🌍
-This repository contains the front-end web console for the GeoSentry platform.  
+![Banner](banner.jpg)
+Frontend Web Console for the GeoSentry🌍 Platform developed with Flutter and Dart and powered by a Firebase Backend.
 
-## Project Status
-**In Development**
 **Version: 0.2.0**  
 **Backend: Firebase**  
 **Language: Dart/Flutter**  
-**License: MIT**
+**License: MIT**  
+**Status: In Heavy Development**
 
 ## Application
 https://www.geosentry.web.app
